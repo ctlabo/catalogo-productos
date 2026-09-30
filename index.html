@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catálogo de productos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+  <main class="contenedor">
+    <header class="encabezado">
+      <h1>Catálogo de productos</h1>
+      <p>Cargá productos, encontrá lo que buscás y controlá tu inventario en un solo lugar.</p>
+    </header>
+
+    <section class="resumen" aria-label="Resumen de inventario">
+      <article class="card metrica"><span class="metrica-label">Productos</span><strong id="r-total">0</strong></article>
+      <article class="card metrica"><span class="metrica-label">Unidades en stock</span><strong id="r-unidades">0</strong></article>
+      <article class="card metrica"><span class="metrica-label">Valor del inventario</span><strong id="r-valor">$0</strong></article>
+      <article class="card metrica"><span class="metrica-label">Con stock bajo</span><strong id="r-bajo">0</strong></article>
+    </section>
+
+    <div class="layout">
+      <aside class="card panel">
+        <div class="card-head">
+          <h2>Agregar producto</h2>
+          <p>Completá los datos para sumarlo al catálogo.</p>
+        </div>
+        <form id="form-producto" class="form">
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" placeholder="Ej: Auriculares inalámbricos" required maxlength="80" autocomplete="off" />
+          </div>
+          <div class="campo">
+            <label for="categoria">Categoría</label>
+            <select id="categoria" name="categoria" required>
+              <option value="Electrónica">Electrónica</option>
+              <option value="Hogar">Hogar</option>
+              <option value="Indumentaria">Indumentaria</option>
+              <option value="Alimentos">Alimentos</option>
+              <option value="Otros">Otros</option>
+            </select>
+          </div>
+          <div class="fila">
+            <div class="campo">
+              <label for="precio">Precio</label>
+              <input id="precio" name="precio" type="number" min="0" step="0.01" placeholder="0,00" required />
+            </div>
+            <div class="campo">
+              <label for="stock">Stock</label>
+              <input id="stock" name="stock" type="number" min="0" step="1" placeholder="0" required />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primario">Agregar producto</button>
+        </form>
+      </aside>
+
+      <section class="contenido">
+        <div class="card filtros" role="search">
+          <div class="campo campo-amplio">
+            <label for="f-nombre">Nombre</label>
+            <input id="f-nombre" type="search" placeholder="Buscar por nombre" autocomplete="off" />
+          </div>
+          <div class="campo">
+            <label for="f-categoria">Categoría</label>
+            <select id="f-categoria">
+              <option value="">Todas</option>
+              <option>Electrónica</option>
+              <option>Hogar</option>
+              <option>Indumentaria</option>
+              <option>Alimentos</option>
+              <option>Otros</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="f-stock">Stock</label>
+            <select id="f-stock">
+              <option value="">Todo</option>
+              <option value="con">Con stock</option>
+              <option value="bajo">Stock bajo (5 o menos)</option>
+              <option value="sin">Sin stock</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="f-precio">Precio máximo</label>
+            <input id="f-precio" type="number" min="0" placeholder="Sin límite" />
+          </div>
+          <button type="button" id="limpiar" class="btn btn-ghost">Limpiar filtros</button>
+        </div>
+
+        <div class="lista-cabecera">
+          <h2>Productos</h2>
+          <span id="contador" class="badge">0 resultados</span>
+        </div>
+
+        <div id="lista" class="grilla"></div>
+        <div id="vacio" class="card vacio" hidden>
+          <strong>No hay productos para mostrar</strong>
+          <p>Probá con otros filtros o agregá un producto nuevo.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Compilá con: npx tsc src/index.ts --outDir dist --target ES2020 -->
+  <script src="dist/index.js"></script>
+</body>
+</html>
