@@ -198,8 +198,17 @@ refrescar();
 // Prueba de conexión con el botón y el párrafo
 const botonPrueba = $<HTMLButtonElement>("boton-prueba");
 const mensajePrueba = $<HTMLParagraphElement>("mensaje-prueba");
+const buscador = document.querySelector<HTMLInputElement>("#busqueda");
 
 botonPrueba.addEventListener("click", () => {
     mensajePrueba.textContent = "La conexión funciona";
     mensajePrueba.style.color = "#0f2";
 });
+if (buscador !== null && mensajePrueba !== null) {
+  buscador.addEventListener("input", () => {
+    mensajePrueba.textContent = "Estás buscando: " + buscador.value;
+        mensajePrueba.style.color = "rgb(0, 0, 0)";
+
+  });
+}
+
