@@ -193,3 +193,13 @@ $("limpiar").addEventListener("click", () => {
 });
 
 refrescar();
+
+///boton de prueba
+// Prueba de conexión con el botón y el párrafo
+const botonPrueba = $<HTMLButtonElement>("boton-prueba");
+const mensajePrueba = $<HTMLParagraphElement>("mensaje-prueba");
+
+botonPrueba.addEventListener("click", () => {
+    mensajePrueba.textContent = "La conexión funciona";
+    mensajePrueba.style.color = "#0f2";
+});
