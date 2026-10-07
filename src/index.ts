@@ -194,7 +194,7 @@ $("limpiar").addEventListener("click", () => {
 
 refrescar();
 
-///boton de prueba
+//boton de prueba
 // Prueba de conexión con el botón y el párrafo
 const botonPrueba = $<HTMLButtonElement>("boton-prueba");
 const mensajePrueba = $<HTMLParagraphElement>("mensaje-prueba");
@@ -212,3 +212,37 @@ if (buscador !== null && mensajePrueba !== null) {
   });
 }
 
+// creacion de productos
+const productoA: Producto2 = {
+  id: 1,
+  nombre: "Auriculares inalambricos",
+  categoria: "electronica",
+  precio: 89900,
+  stock: 14
+};
+const productoB: Producto2 = {
+  id: 2,
+  nombre: "estanozolol",
+  categoria: "suplementacion",
+  precio: 55000,
+  stock: 26
+};
+const productoC: Producto2 = {
+  id: 3,
+  nombre: "trembolona",
+  categoria: "suplementacion",
+  precio: 85000,
+  stock: 8
+};
+
+
+//array de objetos
+const productos_2: Producto2[] = [ 
+  { id: 1, nombre: "Auriculares inalambricos", categoria: "electronica", precio: 89900, stock: 14 },
+  { id: 2, nombre: "estanozolol", categoria: "suplementacion", precio: 55000, stock: 26 },
+  { id: 3, nombre: "trembolona", categoria: "suplementacion", precio: 85000, stock: 8 },
+  { id: 4, nombre: "RTX 4070ti", categoria: "informatica", precio: 700000, stock: 0 },
+  { id: 5, nombre: "RAM DDR5 32g 7500mhz", categoria: "informatica", precio: 750000, stock: 1 }
+]
+
+console.log(productos_2)
