@@ -246,3 +246,43 @@ const productos_2: Producto2[] = [
 ]
 
 console.log(productos_2)
+
+//actividad 3
+const proyectos: Proyecto[] = [
+  { id: 1, nombre: "calculadora", tecnologias: ["C#","WPF"] }, 
+  { id: 2, nombre: "tienda online", tecnologias: ["HTML", "CSS", "JS"]}
+]
+
+const alumnos: Alumno[] = [
+  { id: 1, nombre: "lucas", email: "lucas@gmail.com", proyecto: proyectos[0] }, 
+  { id: 2, nombre: "Mario", email: "mario@gmail.com", proyecto: proyectos[1] }, 
+  { id: 3, nombre: "lautaro", proyecto: null }, 
+  { id: 4, nombre: "luciano", email: "luciano@gmail.com", proyecto: null }
+] 
+
+const listaAlumnos = document.querySelector(".lista_alumnos");
+
+if (listaAlumnos) {
+  alumnos.forEach((alum) => {
+    const tarjeta = document.createElement("article");
+    const nombreElemento = document.createElement("h3");
+    nombreElemento.textContent = alum.nombre;
+
+    const proyectoElemento = document.createElement("p");
+    if (alum.proyecto) {
+      proyectoElemento.textContent = `Proyecto asignado: ${alum.proyecto.nombre} (${alum.proyecto.tecnologias.join(", ")})`;
+    } else {
+      proyectoElemento.textContent = "Estado: Sin proyecto asignado";
+    }
+    tarjeta.appendChild(nombreElemento);
+    tarjeta.appendChild(proyectoElemento);
+
+    if (alum.email) {
+      const emailElemento = document.createElement("small");
+      emailElemento.textContent = `Contacto: ${alum.email}`;
+      tarjeta.appendChild(emailElemento);
+    }
+
+    listaAlumnos.appendChild(tarjeta);
+  });
+}

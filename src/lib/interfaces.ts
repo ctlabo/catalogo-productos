@@ -6,4 +6,16 @@ interface Producto2 {
   stock: number;
 }
 
+interface Proyecto {
+  id: number;
+  nombre: string;
+  tecnologias: string[];
+}
+
+interface Alumno {
+  id: number;
+  nombre: string;
+  email?: string;
+  proyecto: Proyecto | null;
+}
 
