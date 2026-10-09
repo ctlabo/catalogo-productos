@@ -286,3 +286,27 @@ if (listaAlumnos) {
     listaAlumnos.appendChild(tarjeta);
   });
 }
+
+// actividad 4
+const catalogo = document.querySelector(".pruebas .catalogo")
+
+const esCaro = (producto: Producto2): boolean => {
+  if (producto.precio < 200000){
+    return false;
+  }
+
+  catalogo?.replaceChildren()
+
+  const tarjeta = document.createElement("article");
+  tarjeta.className = "tarjeta";
+  const titulo = document.createElement("h3");
+  titulo.textContent = producto.nombre;
+  const detalle = document.createElement("p");
+  detalle.textContent =
+  `${producto.categoria} | $${producto.precio} | stock: ${producto.stock}`;
+  tarjeta.append(titulo, detalle);
+  catalogo?.append(tarjeta)
+  return true;
+}
+
+esCaro(productos_2[3])

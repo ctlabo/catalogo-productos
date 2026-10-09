@@ -223,3 +223,18 @@ input:focus-visible, select:focus-visible {
   margin: auto;
   color: #000;
 }
+
+.pruebas .catalogo {
+  margin-top: 1rem;
+  border-radius: 20px;
+  border: 1px solid #0004;
+}
+
+.pruebas .catalogo .tarjeta {
+  padding: .44rem 1rem .44rem 1rem;
+}
+.pruebas .catalogo .tarjeta p {
+  font-size: 1.2rem;
+  font-style: italic;
+  background-color: rgba(224, 240, 9, 0.2);
+}
